@@ -6,7 +6,7 @@ require 'ostruct'
 
 module CampaignCash
   class Base
-    API_SERVER = 'api.nytimes.com'
+    API_SERVER = 'projects.nytimes.com/campfin/'
     API_VERSION = 'v3'
     API_NAME = 'elections/us'
     API_BASE = "/svc/#{API_NAME}/#{API_VERSION}/finances"
