@@ -6,10 +6,10 @@ require 'ostruct'
 
 module CampaignCash
   class Base
-    API_SERVER = 'projects.nytimes.com'
-    API_VERSION = 'v3'
-    API_NAME = 'elections/us'
-    API_BASE = "/campfin/svc/#{API_NAME}/#{API_VERSION}/finances"
+    API_SERVER = 'propublica-campaignfinance.elasticbeanstalk.com'
+    API_VERSION = 'v1'
+    API_NAME = 'campaign-finance'
+    API_BASE = "/#{API_NAME}/#{API_VERSION}"
     CURRENT_CYCLE = 2016
 
     @@api_key = nil
@@ -74,11 +74,11 @@ module CampaignCash
 
       def invoke(path, params={})
         begin
-          if @@api_key.nil?
-            raise "You must initialize the API key before you run any API queries"
-          end
+#          if @@api_key.nil?
+#            raise "You must initialize the API key before you run any API queries"
+#          end
 
-          full_params = params.merge({"api-key" => @@api_key})
+          full_params = params#.merge({"api-key" => @@api_key})
           full_params.delete_if {|k,v| v.nil?}
 
           check_offset(params[:offset]) if params[:offset]
