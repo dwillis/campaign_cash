@@ -88,7 +88,7 @@ module CampaignCash
       interest_group: get_interest_group(params['interest_group']),
       committee_type: get_committee_type(params['committee_type']),
       designation: get_designation(params['designation']),
-      other_cycles: params['other_cycles'].map{|cycle| cycle['cycle']['cycle']}
+      other_cycles: params['other_cycles']
     end
 
     def self.create_from_search_results(params={})
